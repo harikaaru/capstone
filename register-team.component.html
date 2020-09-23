@@ -1,0 +1,29 @@
+<h1>Team Registration</h1>
+<div class="container">
+  <form class="form" #f="ngForm">
+    <fieldset class="form-group">
+      <label>TeamName</label>
+      <input type="text" #teamname="ngModel" [(ngModel)]="team.teamname" class="form-control" name="teamname" id="teamname"
+        required>
+      <div *ngIf="teamname.errors && (teamname.dirty || teamname.touched)" class="alert alert-danger">
+        <div [hidden]="!teamname.errors.required">
+          Teamname is required!
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- <button type="button" (click)=addPlayer() class="btn btn-success">AddPlayer</button> -->
+    <div>
+      <button type="button" class="btn btn-success" (click)="handleRegister()">Register</button>
+    </div>
+
+  </form>
+</div>
+<!-- [disabled]="!f.form.valid" -->
+
+
+
+
+
+
+

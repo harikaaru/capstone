@@ -1,0 +1,65 @@
+<H1>Player Registration</H1>
+
+<div class="container">
+    
+    <form class="form" #f="ngForm">
+        <fieldset class="form-group">
+            <label>PlayerName</label>
+            <input type="text" #playername="ngModel" [(ngModel)]="player.name" 
+            class="form-control"
+            name="name" id="name" required>
+            <div *ngIf="playername.errors && (playername.dirty || playername.touched)" class="alert alert-danger">
+                <div [hidden]="!playername.errors.required">
+                  Playername is required!
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Age</label>
+            <input type="number" #age="ngModel" [(ngModel)]="player.age" 
+            class="form-control" name="age" required min="18" >
+
+            <div *ngIf="age.errors && (age.dirty || age.touched)" class="alert alert-danger">
+                <div [hidden]="!age.errors.required">
+                  Age should be greater than 18!
+                </div>
+            </div>
+            <!-- <div class="alert alert-warning" *ngIf="ageError">
+                Players who are less than 18 years are not allowed to participate in this game
+            </div> -->
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Caption</label>
+            <input type="text" #caption="ngModel" [(ngModel)]="player.caption" 
+            class="form-control" name="caption"
+            id="caption" required>
+            <div *ngIf="caption.errors && (caption.dirty || caption.touched)" class="alert alert-danger">
+                <div [hidden]="!caption.errors.required">
+                  Caption is required!
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Teamname</label>
+            <input type="text" #playersteamname="ngModel" [(ngModel)]="player.playersteamname" 
+            class="form-control" name="playersteamname"
+            id="playersteamname" required>
+            <div *ngIf="playersteamname.errors && (playersteamname.dirty || playersteamname.touched)" class="alert alert-danger">
+                <div [hidden]="!playersteamname.errors.required">
+                  Teamname is required!
+                </div>
+            </div>
+        </fieldset>
+        
+
+        <div>
+            <button type="button" class="btn btn-success" (click)="handleSave()">SavePlayer</button>
+        </div>
+        <div>
+            <button id="1" type="button" class="btn btn-success" disabled
+            (click)="handleRegister()">Register</button>
+        </div>
+
+    </form>
+</div>
